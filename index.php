@@ -32,6 +32,7 @@ if($_FILES["file"]["name"]!=null)
 <html>
 <head>
    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width">
 </head>
 <body>
     <?php if(!$logined):?>
