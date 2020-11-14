@@ -16,7 +16,17 @@ if($_POST['value'] != null)
     }
 }
 
-move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
+if($_FILES["file"]["name"]!=null)
+{
+    if($_FILES['file']['error']<0)
+{
+    echo '<script>alert("上传失败");</script>';
+}else
+{
+    echo '<script>alert("上传成功");</script>';
+    move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
+}   
+}
 ?>
 
 <html>
