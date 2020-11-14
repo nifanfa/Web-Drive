@@ -25,17 +25,18 @@ move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["nam
 </head>
 <body>
     <?php if(!$logined):?>
-
+    <h1><?php echo getenv('SERVER_ADDR')?></h1>
+    <hr>
     <form action="" method="POST">
         <labbel>密码：</label>
         <input type="text" name="value">
-        <input type="submit" name="submit">
+        <input type="submit" name="submit" value="登录">
     </form>
 
     <?php endif;?>
 
     <?php if($logined):?>
-        <h1><?php echo $_SERVER['REMOTE_ADDR']?></h1>
+        <h1><?php echo $_SERVER['SERVER_ADDR']?></h1>
         <label><?php
         $freespc = disk_free_space(getcwd())/(1024*1024*1024);
         echo substr($freespc,0,strpos($freespc,'.')+3).'GB可用';
