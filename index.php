@@ -8,9 +8,9 @@ if($_POST['value'] != null)
     {
         if($_POST['value'] !== $password)
         {
-            echo '<script>alert("密码错误")</script>';
+            echo '<script>alert("密码错误");window.location.href = document.referrer;</script>';
         }else
-        {
+        {   
             $logined = true;
         }
     }
@@ -20,10 +20,10 @@ if($_FILES["file"]["name"]!=null)
 {
     if($_FILES['file']['error']<0)
 {
-    echo '<script>alert("上传失败");</script>';
+    echo '<script>alert("上传失败");window.location.href = document.referrer;</script>';
 }else
 {
-    echo '<script>alert("上传成功");</script>';
+    echo '<script>alert("上传成功");window.location.href = document.referrer;</script>';
     move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $_FILES["file"]["name"]);
 }   
 }
@@ -64,12 +64,14 @@ if($_FILES["file"]["name"]!=null)
        ?>
 
        <?php 
-       if($value!=="."&&$value!=="..")
+       if($value!=="."&&$value!==".."&&$value!=="Thumbs.db")
        {
           echo"<a href=\"upload/$value\">$value</a><br>";
        }
        ?>
        <?php endforeach;?>
     <?php endif;?>
+    <hr>
+    <label>Fanfa Ni 的私人网盘</label>
 </body>
 </html>
