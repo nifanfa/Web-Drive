@@ -152,7 +152,7 @@ if($_FILES['file']['name']!=null)
         {
             list-style: none;
             float: left;
-            width: 15%;
+            width: 60px;
             height: 100px;
             overflow: hidden;
             padding: 10px
