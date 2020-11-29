@@ -72,6 +72,10 @@ if($_FILES['file']['name']!=null)
         function createnewfolder()
         {
         var name = prompt("文件夹名称：");
+        if(name == null)
+        {
+        return;
+        }
         var select = document.getElementById("newfoldername");
         select.value = name;
         document.getElementById("createfolder").click();
