@@ -92,13 +92,15 @@ if($_FILES['file']['name']!=null)
         </script>
     </head>
     <body>
-        <label style="font-size: 24px; font-family: Microsoft YaHei;"><?php 
+        <div style="width:auto; font-size: 30.5px; font-family: Microsoft YaHei;float: left;"><?php 
         $freespace = disk_free_space(getcwd())/(1024*1024*1024);
         $space = disk_total_space(getcwd())/(1024*1024*1024);
-        echo(substr($freespace,0,strpos($freespace,"."))."GB"."/".substr($space,0,strpos($space,"."))."GB");
+        echo(substr($freespace,0,strpos($freespace,".")+2)."GB"." / ".substr($space,0,strpos($space,".")+2)."GB");
         $availablepercent = 100-(substr($freespace,0,strpos($freespace,".")) / substr($space,0,strpos($space,"."))*100);
-        echo "<div style=\"width: 50%;height: 10px;background:rgb(227, 227, 227);border-radius: 5px;overflow: hidden;\"><div style=\"width: $availablepercent%;height: 10px;background: green\"></div></div>"
-        ?></label>
+        echo "<div style=\"width: 100%;height: 10px;background:rgb(227, 227, 227);border-radius: 5px;overflow: hidden;\"><div style=\"width: $availablepercent%;height: 10px;background: green\"></div></div>"
+        ?></div>
+        <br>
+        <br>
         <br>
 
         <form hidden="true" action="" method="GET"> 
@@ -112,11 +114,11 @@ if($_FILES['file']['name']!=null)
         </form>
         
         <div style="position: fixed; right: 50px; bottom: 50px;">
-        <button onclick="createnewfolder();" style="box-shadow: 4px 4px 12px rgb(136,136,136); float: left; width: 80px; height: 80px; border-radius: 50%; background-color: rgb(238,238,238); color: white; border: none; font-size: 250%; outline: none;"><img style="height: 50%;" src="/createfolder.svg"></button>
+        <button onclick="createnewfolder();" style="box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12); float: left; width: 80px; height: 80px; border-radius: 50%; background-color: rgb(238,238,238); color: white; border: none; font-size: 250%; outline: none;"><img style="height: 50%;" src="/createfolder.svg"></button>
         <br>
         <button style="float: left; visibility: hidden; width: 25px; height: 25px;"></button>
         <br>
-        <button onclick="selectandupload();" style="box-shadow: 4px 4px 12px rgb(136,136,136); float: left; width: 80px; height: 80px; border-radius: 50%; background-color: rgb(245,0,87); color: white; border: none; font-size: 250%; outline: none;">+</button>
+        <button onclick="selectandupload();" style="box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12); float: left; width: 80px; height: 80px; border-radius: 50%; background-color: rgb(245,0,87); color: white; border: none; font-size: 250%; outline: none;">+</button>
         </div>
 
         <label style="font-size: 20px; font-family: Microsoft YaHei;"><?php echo($_GET['path'])?></label>
