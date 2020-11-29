@@ -85,6 +85,10 @@ if($_FILES['file']['name']!=null)
         select.value = name;
         document.getElementById("createfolder").click();
         }
+        function close()
+        {
+            alert("");
+        }
         </script>
     </head>
     <body>
@@ -143,6 +147,8 @@ if($_FILES['file']['name']!=null)
         $pp = $_GET['path'].$value;
         $pp1 = str_replace(getcwd(),"",$pp);
 
+        $cache;
+
         if(strpos($value,'.')!="")
         {
             #echo("<img src=\"file.png\"><a href=\"$pp1\">$value</a> <a id=\"item\" href=\"?delete=$pp1\">删除</a>");
@@ -156,18 +162,18 @@ if($_FILES['file']['name']!=null)
                 $bname == '.bmp'
                 )
             {
-                echo "<li>";
-                echo "<a href=\"$pp1\">";
-                echo "<img src=\"$pp1\"></a>";
-                echo "<br><p class=\"c\" style=\"font-family: Microsoft YaHei;\">$value</p>";
-                echo "</li>";
+                $cache.= "<li>";
+                $cache.= "<a href=\"$pp1\">";
+                $cache.= "<img src=\"$pp1\"></a>";
+                $cache.= "<br><p class=\"c\" style=\"font-family: Microsoft YaHei;\">$value</p>";
+                $cache.= "</li>";
             }else
             {
-                echo "<li>";
-                echo "<a href=\"$pp1\">";
-                echo "<img src=\"file.svg\"></a>";
-                echo "<br><p class=\"c\" style=\"font-family: Microsoft YaHei;\">$value</p>";
-                echo "</li>";
+                $cache.= "<li>";
+                $cache.= "<a href=\"$pp1\">";
+                $cache.= "<img src=\"file.svg\"></a>";
+                $cache.= "<br><p class=\"c\" style=\"font-family: Microsoft YaHei;\">$value</p>";
+                $cache.= "</li>";
             }
         }else   
         {
@@ -183,6 +189,9 @@ if($_FILES['file']['name']!=null)
         ?>
         <?php 
         endforeach;
+
+        echo $cache;
+        $cache = null;
 
         if($c == 0)
         {
