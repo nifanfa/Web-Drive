@@ -76,6 +76,11 @@ if($_FILES['file']['name']!=null)
         {
         return;
         }
+        if(name == "")
+        {
+        alert("请输入文件夹名")
+        return;
+        }
         var select = document.getElementById("newfoldername");
         select.value = name;
         document.getElementById("createfolder").click();
