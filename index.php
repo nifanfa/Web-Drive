@@ -97,7 +97,7 @@ if($_FILES['file']['name']!=null)
         $space = disk_total_space(getcwd())/(1024*1024*1024);
         echo(substr($freespace,0,strpos($freespace,"."))."GB"."/".substr($space,0,strpos($space,"."))."GB");
         $availablepercent = 100-(substr($freespace,0,strpos($freespace,".")) / substr($space,0,strpos($space,"."))*100);
-        echo "<div style=\"width: 300px;height: 10px;background:rgb(227, 227, 227);border-radius: 5px;overflow: hidden;\"><div style=\"width: $availablepercent%;height: 10px;background: green\"></div></div>"
+        echo "<div style=\"width: 50%;height: 10px;background:rgb(227, 227, 227);border-radius: 5px;overflow: hidden;\"><div style=\"width: $availablepercent%;height: 10px;background: green\"></div></div>"
         ?></label>
         <br>
 
