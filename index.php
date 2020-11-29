@@ -189,7 +189,7 @@ if($_FILES['file']['name']!=null)
             echo("<label>目录是空的</label>");
         }else
         {
-            echo "<li style=\"height: 55%; position: relative;\"></li>";
+            echo "<li style=\"height: 50%; position: relative;\"></li>";
         }
 
         echo "</div>"
