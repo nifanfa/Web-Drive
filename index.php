@@ -5,14 +5,6 @@ $password = "nifanfa1234";
 if($_COOKIE['password'] == $password)
 {
     $logined = true;
-}else
-{
-    #例外
-    if(strpos($_SERVER['HTTP_USER_AGENT'],"OPPO A57") != "")
-    {
-    setcookie("password",$password,time()+300);
-    echo('<script>alert("欢迎回来，李红");document.location.href = document.referrer;</script>');
-    }
 }
 
 if(isset($_POST['password']))
